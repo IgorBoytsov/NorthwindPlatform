@@ -32,5 +32,6 @@
         Exist = 4003,
         ApiError = 4004,
         InvalidIdentifier = 4005,
+        Get = 4006,
     }
 }

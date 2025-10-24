@@ -4,6 +4,8 @@
     {
         public static readonly Error None = new(ErrorCode.None, string.Empty);
 
+        public static Error New(ErrorCode code, string message) => new(code, message);
+
         public static Error Rule(string message) => new(ErrorCode.Rule, message);
 
         public static Error NotFound(string entityName, object id) => new(ErrorCode.NotFound, $"Сущность '{entityName}' с идентификатором '{id}' не найдена.");

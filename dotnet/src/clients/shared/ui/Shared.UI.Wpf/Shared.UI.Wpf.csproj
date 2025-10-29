@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Brushes\DarkTheme\" />
+    <Folder Include="Resources\Brushes\LightTheme\" />
+    <Folder Include="Resources\Colors\" />
+    <Folder Include="Resources\Controls\" />
+    <Folder Include="Resources\Dimensions\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Resources\Geometries\" />
+    <Folder Include="Resources\Icons\" />
+    <Folder Include="Resources\Styles\" />
+    <Folder Include="Resources\Templates\" />
+    <Folder Include="Services\Dialog\" />
+    <Folder Include="Services\FileDialog\" />
+    <Folder Include="Services\Navigations\" />
+    <Folder Include="UserControls\" />
+    <Folder Include="ValueConverters\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Attachables\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+</Project>

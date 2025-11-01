@@ -93,10 +93,10 @@ namespace Common.Core.Results
             var failedResults = results.Where(r => r.IsFailure).ToList();
 
             if (failedResults.Count == 0)
-                return Success(); // Теперь тип совпадает - Result<Unit>
+                return Success();
 
             var allErrors = failedResults.SelectMany(r => r.Errors).ToList();
-            return Failure(allErrors); // И здесь тоже - Result<Unit>
+            return Failure(allErrors);
         }
 
         /*--Отображение ошибки в виде строки--------------------------------------------------------------*/

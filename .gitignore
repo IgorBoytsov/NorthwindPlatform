@@ -460,3 +460,4 @@ signing.properties
 .externalNativeBuild
 .cxx
 local.properties
+/dotnet/src/apps/NorthwindPlatform.Wpf.Shell/ApiConf.json

@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- ╔═════════════════════════════════════════════════════════════════════════════╗ -->
+    <!-- ║                                   Базовая                                   ║ -->
+    <!-- ╚═════════════════════════════════════════════════════════════════════════════╝ -->
+
+    <Style x:Key="TextBlock.Base" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{DynamicResource Size.Font.Large}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Foreground.Primary}"/>
+    </Style>
+
+    <!-- ╔═════════════════════════════════════════════════════════════════════════════╗ -->
+    <!-- ║                                  LoginView                                  ║ -->
+    <!-- ╚═════════════════════════════════════════════════════════════════════════════╝ -->
+
+    <Style x:Key="TextBlock.LoginView" TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+</ResourceDictionary>

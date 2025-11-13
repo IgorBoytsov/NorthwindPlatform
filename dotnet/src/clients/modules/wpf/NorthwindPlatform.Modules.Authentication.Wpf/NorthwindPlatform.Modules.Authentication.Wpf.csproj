@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\common\Common.Core\Common.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\common\Shared.Contracts\Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\api\NorthwindPlatform.Authentication.ApiClient\NorthwindPlatform.Authentication.ApiClient.csproj" />
+    <ProjectReference Include="..\..\..\shared\core\Shared.Client.Security\Shared.Client.Security.csproj" />
     <ProjectReference Include="..\..\..\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>
 

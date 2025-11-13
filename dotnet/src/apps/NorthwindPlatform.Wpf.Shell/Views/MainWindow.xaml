@@ -1,0 +1,178 @@
+﻿<Window x:Class="NorthwindPlatform.Wpf.Shell.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorthwindPlatform.Wpf.Shell.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:viewmodels="clr-namespace:NorthwindPlatform.Wpf.Shell.ViewModels" 
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:behaviors="clr-namespace:Shared.UI.Wpf.Behaviors;assembly=Shared.UI.Wpf"
+        xmlns:enums="clr-namespace:Shared.UI.Wpf.Enums;assembly=Shared.UI.Wpf"
+        xmlns:converters="clr-namespace:Shared.UI.Wpf.ValueConverters;assembly=Shared.UI.Wpf"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource Brush.Background.App.Primary}"
+        x:Name="MainWnd"
+        Title="MainWindow" 
+        Height="450" Width="800"    
+        MinWidth="900" MinHeight="500">
+
+    <b:Interaction.Behaviors>
+        <behaviors:AsyncInitializeBehavior />
+    </b:Interaction.Behaviors>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32" GlassFrameThickness="0" CornerRadius="0"/>
+    </WindowChrome.WindowChrome>
+
+    <Border x:Name="MainWindowBorder" Background="Transparent" BorderBrush="LightCoral" BorderThickness="0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="32"/>
+                <RowDefinition Height ="*"/>
+            </Grid.RowDefinitions>
+
+            <!--==========Popups==========-->
+
+            <!--#region UserMenu -->
+
+            <Popup IsOpen="{Binding UserMenuPopup.IsOpen}"
+                   StaysOpen="{Binding UserMenuPopup.StaysOpen}"
+                   PlacementTarget="{Binding UserMenuPopup.PlacementTarget}"
+                   CustomPopupPlacementCallback="{Binding UserMenuPopup.CustomPlacementCallback}"
+                   Placement="Custom"
+                   AllowsTransparency="True"
+                   PopupAnimation="Slide"
+                   VerticalOffset="5">
+
+                <Border Background="{DynamicResource Brush.Background.App.Secondary}"
+                        BorderBrush="{DynamicResource Brush.BorderBrush.Popup}"
+                        BorderThickness="1"
+                        Padding="10" 
+                        CornerRadius="5">
+
+                    <DockPanel>
+
+                        <Grid Margin="0,0,0,10" DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0"
+                                    Style="{DynamicResource Button.App.Round}"
+                                    Command="{Binding SwitchTheme}"
+                                    CommandParameter="{x:Static enums:Themes.Light}">
+                                <Button.Content>
+                                    <Control Template="{StaticResource Sun}" Width="20" Foreground="#ffce31"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Grid.Column="1"
+                                    Style="{DynamicResource Button.App.Round}"
+                                    Command="{Binding SwitchTheme}"
+                                    CommandParameter="{x:Static enums:Themes.Dark}">
+                                <Button.Content>
+                                    <Control Template="{StaticResource Moon}" Width="20" Foreground="{DynamicResource Brush.Icon.Moon}"/>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
+                        <Button Content="Настройки"
+                                Margin="0,5,0,5"
+                                Style="{DynamicResource Button.App}"
+                                HorizontalContentAlignment="Center"
+                                DockPanel.Dock="Top"/>
+
+                    </DockPanel>
+                </Border>
+            </Popup>
+
+            <!--#endregion-->
+
+            <!--==========Content=========-->
+            
+            <!--#region Кнопки измение WindowStat -->
+
+            <Grid Background="{DynamicResource Brush.Background.App.Header}">
+
+                <TextBlock Text="Northwind Platform"
+                           Foreground="White" 
+                           FontFamily="Segoe Print" FontWeight="Bold" FontSize="17"
+                           Margin="10,0,0,0"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Button x:Name="BtnUserMenu" Style="{StaticResource Button.MainWindow.UserSetting}"
+                            Command="{Binding UserMenuPopup.ShowCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.Content>
+                            <Viewbox>
+                                <Control Template="{StaticResource UserProfile}"/>
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="BtnMinimize"
+                            Command="{Binding MinimizeCommand}"
+                            CommandParameter="{Binding ElementName=MainWnd}"
+                            Style="{StaticResource Button.Management.Window}"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.Content>
+                            <Control Template="{StaticResource Minimize}" Foreground="White" Margin="5"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="RestoreButton" 
+                            Command="{Binding RestoreCommand}"
+                            CommandParameter="{Binding ElementName=MainWnd}"
+                            Visibility="Collapsed" 
+                            Style="{StaticResource Button.Management.Window}"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.Content>
+                            <Control Template="{StaticResource Restore}" Foreground="White" Margin="5"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="MaximizeButton"
+                            Command="{Binding MaximizeCommand}"
+                            CommandParameter="{Binding ElementName=MainWnd}"
+                            Visibility="Visible"  
+                            Style="{StaticResource Button.Management.Window}"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.Content>
+                            <Control Template="{StaticResource Maximize}" Foreground="White" Margin="5"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="BtnClose"
+                            Command="{Binding ShutDownCommand}"
+                            CommandParameter="{Binding ElementName=MainWnd}"
+                            Style="{StaticResource Button.Menagement.Window.Close}"
+                            WindowChrome.IsHitTestVisibleInChrome="True">
+                        <Button.Content>
+                            <Control Template="{StaticResource Close}" Foreground="White" Margin="5"/>
+                        </Button.Content>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+            
+            <!--#endregion-->
+
+            <!--#region Content -->
+
+            <Grid Grid.Row="1">
+
+                <ContentControl prism:RegionManager.RegionName="MainRegion"/>
+
+            </Grid>
+
+            <!--#endregion-->
+
+        </Grid>
+    </Border>
+</Window>

@@ -57,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Validation", "src\sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Logging", "src\shared\infrastructure\observability\Shared.Logging\Shared.Logging.csproj", "{6023DA34-52BF-AFE5-59C3-D4B098B3A9CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Wpf.Shell", "src\apps\NorthwindPlatform.Wpf.Shell\NorthwindPlatform.Wpf.Shell.csproj", "{FA967A45-A2AA-9E0D-3D82-A60E6774726D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Wpf.Shell", "src\apps\desktop\NorthwindPlatform.Wpf.Shell\NorthwindPlatform.Wpf.Shell.csproj", "{FA967A45-A2AA-9E0D-3D82-A60E6774726D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Modules.Authentication.Wpf", "src\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj", "{B6A7686F-FF48-2C74-5DB6-4DD7310375C5}"
 EndProject

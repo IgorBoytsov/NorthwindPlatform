@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
-    <ProjectReference Include="..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
+    <ProjectReference Include="..\..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
+    <ProjectReference Include="..\..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

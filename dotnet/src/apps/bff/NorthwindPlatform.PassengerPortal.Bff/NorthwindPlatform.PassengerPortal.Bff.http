@@ -1,6 +1,0 @@
-@NorthwindPlatform.PassengerPortal.Bff_HostAddress = http://localhost:5078
-
-GET {{NorthwindPlatform.PassengerPortal.Bff_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

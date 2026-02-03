@@ -1,0 +1,6 @@
+@NorthwindPlatform.Bff.GroundOps_HostAddress = http://localhost:5194
+
+GET {{NorthwindPlatform.Bff.GroundOps_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

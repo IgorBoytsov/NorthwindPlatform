@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0C5D3AF-2107-4075-9B5F-82EDA15CA4E9}"
 EndProject
@@ -99,6 +99,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.UI.Wpf", "src\client
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Authentication.ApiClient", "src\clients\api\NorthwindPlatform.Authentication.ApiClient\NorthwindPlatform.Authentication.ApiClient.csproj", "{2758279C-7C29-40F6-BFD5-95270F8B8414}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bff", "bff", "{36761D6D-7595-42E6-B324-DCE6A7A28AB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.StaffPortal.Bff", "src\apps\bff\NorthwindPlatform.StaffPortal.Bff\NorthwindPlatform.StaffPortal.Bff.csproj", "{5714B2E8-F156-4087-A64C-54D3C62C861C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.PassengerPortal.Bff", "src\apps\bff\NorthwindPlatform.PassengerPortal.Bff\NorthwindPlatform.PassengerPortal.Bff.csproj", "{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,6 +175,14 @@ Global
 		{2758279C-7C29-40F6-BFD5-95270F8B8414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2758279C-7C29-40F6-BFD5-95270F8B8414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2758279C-7C29-40F6-BFD5-95270F8B8414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5714B2E8-F156-4087-A64C-54D3C62C861C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5714B2E8-F156-4087-A64C-54D3C62C861C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5714B2E8-F156-4087-A64C-54D3C62C861C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5714B2E8-F156-4087-A64C-54D3C62C861C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -220,6 +234,9 @@ Global
 		{89AA0FFB-4531-9626-1626-EDB8A9CF6811} = {5CBE4E48-9519-4717-8D1D-433EAD1DCAD3}
 		{443561E3-989F-9FB3-B0E9-ACE46C3F2C3A} = {5CBE4E48-9519-4717-8D1D-433EAD1DCAD3}
 		{2758279C-7C29-40F6-BFD5-95270F8B8414} = {C5A6AA8B-692B-4807-8F74-0C15660A5433}
+		{36761D6D-7595-42E6-B324-DCE6A7A28AB8} = {7F492BF2-D7B2-472C-B524-7616994B4E80}
+		{5714B2E8-F156-4087-A64C-54D3C62C861C} = {36761D6D-7595-42E6-B324-DCE6A7A28AB8}
+		{AA28E8FC-F61E-4C0A-8C94-E47C13A2CF5A} = {36761D6D-7595-42E6-B324-DCE6A7A28AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20D241C4-B1D8-4432-BB01-1F865D7402E4}

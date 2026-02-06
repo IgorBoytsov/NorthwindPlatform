@@ -15,7 +15,7 @@ namespace NorthwindPlatform.Bff.Workstation.Features.Auth.Command.VerifySrpProof
                 if (result.IsFailure)
                     return Results.BadRequest(result.Errors);
 
-                return Results.Ok();
+                return Results.Ok(result.Value);
             });
         }
     }

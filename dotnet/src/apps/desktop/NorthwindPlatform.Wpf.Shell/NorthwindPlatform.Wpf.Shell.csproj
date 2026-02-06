@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\image_2025-11-08_20-30-02.ico</ApplicationIcon>
+    <UserSecretsId>a8eb7ec6-a68d-4492-b863-69bab985872c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,15 +26,20 @@
     <PackageReference Include="Prism.DryIoc" Version="9.0.537" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
     <ProjectReference Include="..\..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <Content Include="ApiConf.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
+    <ProjectReference Include="..\..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,6 +5,8 @@ using NorthwindPlatform.Modules.Authentication.Wpf;
 using NorthwindPlatform.Wpf.Shell.Services;
 using NorthwindPlatform.Wpf.Shell.Views;
 using Shared.Client.Security.Abstractions;
+using Shared.Client.Security.Cryptography;
+using Shared.Client.Security.Srp;
 using Shared.Contracts.Enums;
 using Shared.UI.Wpf.Services.Theme;
 using System.IO;
@@ -33,6 +35,10 @@ namespace NorthwindPlatform.Wpf.Shell
             containerRegistry.RegisterSingleton<IThemeService, ThemeService>();
             containerRegistry.RegisterSingleton<ISecureTokenStorage, WpfSecureTokenStorage>();
             containerRegistry.RegisterSingleton<IApplicationInitializer, ApplicationInitializer>();
+
+            containerRegistry.RegisterSingleton<ISrpService, SrpService>();
+            containerRegistry.RegisterSingleton<ICryptoService, CryptoService>();
+            containerRegistry.RegisterSingleton<IKeyDerivationService, KeyDerivationService>();
 
             string? authServiceApiUrl = Configuration.GetValue<string>("BaseAuthServiceUrl");
             services.AddHttpClient(ApiClientName.BaseAuthApi.ToString(), client => client.BaseAddress = new Uri(authServiceApiUrl!));

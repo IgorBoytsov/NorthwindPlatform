@@ -1,4 +1,5 @@
 ﻿using Shared.Client.Security.Abstractions;
+using Shared.Contracts.Requests.AuthenticationService;
 using Shared.Contracts.Requests.Security;
 using Shared.UI.Wpf.Enums;
 using System.Windows;
@@ -8,6 +9,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
     public class LoginViewModel : BindableBase
     {
         private readonly IAuthenticationService _authenticationService;
+        private readonly ICryptoService _cryptoService;
+        private readonly ISrpService _srpService;
         private readonly ISecureTokenStorage _tokenStorage;
         private readonly IRegionManager _regionManager;
 
@@ -15,10 +18,14 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
 
         public LoginViewModel(
             IAuthenticationService authenticationService, 
+            ICryptoService cryptoService,
+            ISrpService srpService,
             ISecureTokenStorage tokenStorage,
             IRegionManager regionManager)
         {
             _authenticationService = authenticationService;
+            _cryptoService = cryptoService;
+            _srpService = srpService;
             _tokenStorage = tokenStorage;
             _regionManager = regionManager;
 
@@ -64,7 +71,7 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
 
         /*--Команды---------------------------------------------------------------------------------------*/
 
-        #region Команда [LoginCommand]: Аунтетификация
+        #region Команда [LoginCommand]: Аутентификации
 
         public AsyncDelegateCommand<object> LoginCommand { get; private set; }
 
@@ -72,19 +79,42 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
         {
             try
             {
-                var result = await _authenticationService.LoginAsync(new LoginRequest(Login!, Password!));
+                var challengeResult = await _authenticationService.GetSrpChallenge(new SrpChallengeRequest(Login!));
 
-                if (result.IsSuccess)
+                if (challengeResult.IsFailure)
+                    MessageBox.Show(challengeResult.StringMessage);
+
+                var challengeSalt = challengeResult.Value.Salt;
+                var challengeB = challengeResult.Value.B;
+
+                var (A, M1, S) = _srpService.GenerateSrpProof(Password!, challengeSalt, challengeB);
+
+                var srpVerifyResult = await _authenticationService.VerifySrpProof(new SrpVerifyRequest(Login!, A, M1));
+
+                if (srpVerifyResult.IsFailure)
                 {
-                    await _tokenStorage.StoreTokensAsync(result.Value.AccessToken, result.Value.RefreshToken);
-                    _regionManager.RequestNavigate(Regions.MainRegion.ToString(), "");
+                    MessageBox.Show(srpVerifyResult.StringMessage);
+                    return;
                 }
-                else
-                    MessageBox.Show(result.StringMessage);
+                    
+                var serverM2 = srpVerifyResult.Value.M2;
+
+                var isServerValid = _srpService.VerifyServerM2(A, M1, S, serverM2!);
+
+                if (!isServerValid)
+                {
+                    MessageBox.Show("Подлинность сервера не получилось подтвердить");
+                    return;
+                }
+
+                var region = _regionManager.Regions[Regions.MainRegion.ToString()];
+
+                foreach (var view in region.Views)
+                    region.Remove(view);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                MessageBox.Show($"Произошла непредвиденная ошибка: {ex}");
+                 MessageBox.Show($"Критическая ошибка: {ex}");
             }
         }
 

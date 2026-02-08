@@ -3,6 +3,7 @@ using Shared.Client.Security.Abstractions;
 using Shared.Contracts.Enums;
 using Shared.Contracts.Requests.AuthenticationService;
 using Shared.Contracts.Requests.Security;
+using Shared.Contracts.Requests.Workstation;
 using Shared.Contracts.Responses.AuthenticationService;
 using Shared.Contracts.Responses.Security;
 using System.Net.Http.Json;
@@ -40,7 +41,7 @@ namespace NorthwindPlatform.Authentication.ApiClient.HttpClients
             }
         }
 
-        public async Task<Result<AuthResponse>> VerifySrpProof(SrpVerifyRequest request)
+        public async Task<Result<AuthResponse>> VerifySrpProof(WorkstationSrpVerifyRequest request)
         {
             HttpResponseMessage? response = null!;
             try

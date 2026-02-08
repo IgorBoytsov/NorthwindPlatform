@@ -1,6 +1,6 @@
 ﻿using Shared.Client.Security.Abstractions;
 using Shared.Contracts.Requests.AuthenticationService;
-using Shared.Contracts.Requests.Security;
+using Shared.Contracts.Requests.Workstation;
 using Shared.UI.Wpf.Enums;
 using System.Windows;
 
@@ -11,7 +11,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
         private readonly IAuthenticationService _authenticationService;
         private readonly ICryptoService _cryptoService;
         private readonly ISrpService _srpService;
-        private readonly ISecureTokenStorage _tokenStorage;
+        private readonly ISecureTokenStorage _secureTokenStorage;
+        private readonly IDeviceIdentityService _deviceIdentityService;
         private readonly IRegionManager _regionManager;
 
         /*--Инициализация---------------------------------------------------------------------------------*/
@@ -21,12 +22,14 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
             ICryptoService cryptoService,
             ISrpService srpService,
             ISecureTokenStorage tokenStorage,
+            IDeviceIdentityService deviceIdentityService,
             IRegionManager regionManager)
         {
             _authenticationService = authenticationService;
             _cryptoService = cryptoService;
             _srpService = srpService;
-            _tokenStorage = tokenStorage;
+            _secureTokenStorage = tokenStorage;
+            _deviceIdentityService = deviceIdentityService;
             _regionManager = regionManager;
 
             LoginCommand = new AsyncDelegateCommand<object>(ExecuteLogin, CanExecuteLogin);
@@ -79,6 +82,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
         {
             try
             {
+                var deviceIdentity = await _deviceIdentityService.GetOrCreateAsync();
+
                 var challengeResult = await _authenticationService.GetSrpChallenge(new SrpChallengeRequest(Login!));
 
                 if (challengeResult.IsFailure)
@@ -89,7 +94,7 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
 
                 var (A, M1, S) = _srpService.GenerateSrpProof(Password!, challengeSalt, challengeB);
 
-                var srpVerifyResult = await _authenticationService.VerifySrpProof(new SrpVerifyRequest(Login!, A, M1));
+                var srpVerifyResult = await _authenticationService.VerifySrpProof(new WorkstationSrpVerifyRequest(Login!, A, M1, deviceIdentity.DeviceId, Convert.ToBase64String(deviceIdentity.FingerprintHash)));
 
                 if (srpVerifyResult.IsFailure)
                 {
@@ -106,6 +111,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
                     MessageBox.Show("Подлинность сервера не получилось подтвердить");
                     return;
                 }
+
+                await _secureTokenStorage.StoreTokensAsync(srpVerifyResult.Value.AccessToken, srpVerifyResult.Value.RefreshToken);
 
                 var region = _regionManager.Regions[Regions.MainRegion.ToString()];
 

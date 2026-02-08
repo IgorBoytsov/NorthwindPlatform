@@ -7,6 +7,7 @@ using NorthwindPlatform.Wpf.Shell.Views;
 using Shared.Client.Security.Abstractions;
 using Shared.Client.Security.Cryptography;
 using Shared.Client.Security.Srp;
+using Shared.Client.Security.Windows;
 using Shared.Contracts.Enums;
 using Shared.UI.Wpf.Services.Theme;
 using System.IO;

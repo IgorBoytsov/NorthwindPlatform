@@ -1,12 +1,11 @@
-﻿using Shared.Client.Security.Abstractions;
-using System.IO;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using Shared.Client.Security.Abstractions;
 
-namespace NorthwindPlatform.Wpf.Shell.Services
+namespace Shared.Client.Security.Windows
 {
-    internal sealed class WpfSecureTokenStorage : ISecureTokenStorage
+    public sealed class WpfSecureTokenStorage : ISecureTokenStorage
     {
         internal sealed record TokenData(string AccessToken, string RefreshToken);
 

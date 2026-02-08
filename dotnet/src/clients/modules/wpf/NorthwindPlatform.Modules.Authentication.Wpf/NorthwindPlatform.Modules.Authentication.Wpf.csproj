@@ -20,6 +20,7 @@
     <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Cryptography\Shared.Client.Security.Cryptography.csproj" />
     <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Srp\Shared.Client.Security.Srp.csproj" />
     <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Utilities\Shared.Client.Security.Utilities.csproj" />
+    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Windows\Shared.Client.Security.Windows.csproj" />
     
     <ProjectReference Include="..\..\..\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>

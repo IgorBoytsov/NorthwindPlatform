@@ -5,8 +5,10 @@ using NorthwindPlatform.Bff.Workstation.Extensions.Ioc;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-builder.Services.AddServices();
-builder.Services.AddHttpClients(builder.Configuration);
+builder.Services
+    .AddServices()
+    .AddHttpClients(builder.Configuration)
+    .AddPersistence(builder.Configuration);
 
 var app = builder.Build();
 

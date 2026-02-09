@@ -1,5 +1,4 @@
 using System.Numerics;
-using Shared.Client.Security.Abstractions;
 
 namespace Shared.Client.Security.Utilities
 {

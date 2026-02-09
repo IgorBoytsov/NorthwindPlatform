@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Shared.Client.Security.Abstractions;
+using Shared.Client.Security.Utilities;
 
 namespace Shared.Client.Security.Cryptography
 {

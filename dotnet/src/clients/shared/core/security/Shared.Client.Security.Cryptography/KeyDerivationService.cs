@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using Shared.Client.Security.Abstractions;
+using Shared.Client.Security.Utilities;
 
 namespace Shared.Client.Security.Cryptography
 {

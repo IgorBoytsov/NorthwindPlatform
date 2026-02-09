@@ -7,23 +7,15 @@ namespace Shared.Client.Security.Windows
 {
     public class DeviceIdentityService : IDeviceIdentityService
     {
-        private readonly string _deviceFilePath;
-
-        public DeviceIdentityService()
-        {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var appFolder = Path.Combine(appData, "NorthwindPlatform", "Workstation");
-            Directory.CreateDirectory(appFolder);
-            _deviceFilePath = Path.Combine(appFolder, "device.dat");
-        }
+        private readonly string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NorthwindPlatform", "device.dat");
 
         public async Task<DeviceIdentity> GetOrCreateAsync()
         {
-            if (File.Exists(_deviceFilePath))
+            if (File.Exists(_filePath))
             {
                 try
                 {
-                    var encryptedData = await File.ReadAllBytesAsync(_deviceFilePath);
+                    var encryptedData = await File.ReadAllBytesAsync(_filePath);
                     var decrypted = ProtectedData.Unprotect(encryptedData, null, DataProtectionScope.CurrentUser);
                     var json = Encoding.UTF8.GetString(decrypted);
                     return JsonSerializer.Deserialize<DeviceIdentity>(json) ??
@@ -59,7 +51,7 @@ namespace Shared.Client.Security.Windows
             var json = JsonSerializer.Serialize(identity);
             var bytes = Encoding.UTF8.GetBytes(json);
             var encrypted = ProtectedData.Protect(bytes, null, DataProtectionScope.CurrentUser);
-            File.WriteAllBytes(_deviceFilePath, encrypted);
+            File.WriteAllBytes(_filePath, encrypted);
         }
 
         private static string GenerateRawFingerprint()

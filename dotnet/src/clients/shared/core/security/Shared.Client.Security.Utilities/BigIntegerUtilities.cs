@@ -12,8 +12,8 @@ namespace Shared.Client.Security.Utilities
         /// </summary>
         public static byte[] ToFixedLengthBytes(BigInteger value, int length)
         {
-            if (length <= 0)
-                throw new ArgumentException("Length must be positive.", nameof(length));
+            if (length <= 0) throw 
+                new ArgumentException("Длина должна быть положительной.", nameof(length));
 
             byte[] bytes = value.ToByteArray(isUnsigned: true, isBigEndian: true);
 
@@ -23,17 +23,13 @@ namespace Shared.Client.Security.Utilities
             byte[] result = new byte[length];
 
             if (bytes.Length > length)
-                Array.Copy(bytes, bytes.Length - length, result, 0, length);
+                Buffer.BlockCopy(bytes, bytes.Length - length, result, 0, length);
             else
-                Array.Copy(bytes, 0, result, length - bytes.Length, bytes.Length);
+                Buffer.BlockCopy(bytes, 0, result, length - bytes.Length, bytes.Length);
 
             return result;
         }
 
-        /// <summary>
-        /// Преобразует Base64-строку (возможно, URL-safe) в BigInteger.
-        /// Автоматически добавляет padding при необходимости.
-        /// </summary>
         public static BigInteger FromBase64(string base64)
         {
             if (string.IsNullOrEmpty(base64))

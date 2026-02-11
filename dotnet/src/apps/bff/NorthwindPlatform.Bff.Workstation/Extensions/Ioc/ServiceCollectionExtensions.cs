@@ -3,7 +3,7 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using NorthwindPlatform.Bff.Workstation.Infrastructure.Clients;
 using NorthwindPlatform.Bff.Workstation.Infrastructure.Persistence.Contexts;
-using NorthwindPlatform.Bff.Workstation.Infrastructure.Repositories;
+using NorthwindPlatform.Bff.Workstation.Infrastructure.Repositories.TrustedDevice;
 using Npgsql;
 
 namespace NorthwindPlatform.Bff.Workstation.Extensions.Ioc

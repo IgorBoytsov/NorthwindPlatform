@@ -2,7 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Common.Core.Results;
 using MediatR;
 using NorthwindPlatform.Bff.Workstation.Infrastructure.Clients;
-using NorthwindPlatform.Bff.Workstation.Infrastructure.Repositories;
+using NorthwindPlatform.Bff.Workstation.Infrastructure.Repositories.TrustedDevice;
 using NorthwindPlatform.Bff.Workstation.Models.Domain.Entities;
 using Shared.Contracts.Requests.AuthenticationService;
 using Shared.Contracts.Responses.AuthenticationService;

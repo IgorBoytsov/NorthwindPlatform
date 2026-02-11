@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\..\common\Shared.Contracts\Shared.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Infrastructure\Repositories\TrustedDevice\Queries\*.sql" />
+  </ItemGroup>
+
 </Project>

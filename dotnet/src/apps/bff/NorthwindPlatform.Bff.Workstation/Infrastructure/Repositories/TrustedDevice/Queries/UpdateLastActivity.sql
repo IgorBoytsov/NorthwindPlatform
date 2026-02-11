@@ -1,0 +1,1 @@
+UPDATE trust_devices SET is_active = FALSE, revoked_at = NOW() WHERE device_id = @deviceId AND is_active = TRUE;

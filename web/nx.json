@@ -45,10 +45,13 @@
     }
   },
   "release": {
-    "projects": ["api"],
+    "projects": ["api", "abstractions", "cryptography", "srp", "utilities"],
     "projectsRelationship": "independent",
     "docker": {
       "skipVersionActions": true
+    },
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build"
     }
   },
   "plugins": [
@@ -106,7 +109,11 @@
       "exclude": [
         "libs/shared/utils/*",
         "libs/shared/dto/*",
-        "libs/shared/simple/*"
+        "libs/shared/simple/*",
+        "libs/shared/security/abstractions/*",
+        "libs/shared/security/cryptography/*",
+        "libs/shared/security/srp/*",
+        "libs/shared/security/utilities/*"
       ]
     },
     {
@@ -114,7 +121,11 @@
       "include": [
         "libs/shared/utils/*",
         "libs/shared/dto/*",
-        "libs/shared/simple/*"
+        "libs/shared/simple/*",
+        "libs/shared/security/abstractions/*",
+        "libs/shared/security/cryptography/*",
+        "libs/shared/security/srp/*",
+        "libs/shared/security/utilities/*"
       ],
       "options": {
         "typecheck": {

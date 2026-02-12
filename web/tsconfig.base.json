@@ -25,7 +25,19 @@
       "@org/shop/shared-ui": ["libs/shop/shared-ui/src/index.ts"],
       "@org/utils": ["libs/shared/utils/src/index.ts"],
       "@northwindplatform/shared/dto": ["libs/shared/dto/src/index.ts"],
-      "@org/simple": ["libs/shared/simple/src/index.ts"]
+      "@org/simple": ["libs/shared/simple/src/index.ts"],
+      "@northwindplatform/security/abstractions": [
+        "libs/shared/security/abstractions/src/index.ts"
+      ],
+      "@northwindplatform/security/cryptography": [
+        "libs/shared/security/cryptography/src/index.ts"
+      ],
+      "@northwindplatform/security/srp": [
+        "libs/shared/security/srp/src/index.ts"
+      ],
+      "@northwindplatform/security/utilities": [
+        "libs/shared/security/utilities/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -19,7 +19,7 @@
             "input": "apps/staff-portal/public"
           }
         ],
-        "styles": ["apps/staff-portal/src/styles.css"]
+        "styles": ["apps/staff-portal/src/styles.scss"]
       },
       "configurations": {
         "production": {

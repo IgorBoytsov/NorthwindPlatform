@@ -1,41 +1,49 @@
+using System.Reflection;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using NorthwindPlatform.Bff.Staff.Extensions.AspNet;
+using NorthwindPlatform.Bff.Staff.Extensions.Ioc;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services
+    .AddServices()
+    .AddHttpClients(builder.Configuration);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200", "http://127.0.0.1:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "Nexus.Auth";
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SameSite = SameSiteMode.Strict;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        options.LoginPath = "/Account/Login";
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.MapEndpoints(Assembly.GetExecutingAssembly());
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+app.UseCors("AllowLocalFrontend");
+
+app.UseAuthentication(); 
+
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

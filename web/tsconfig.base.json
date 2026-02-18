@@ -37,6 +37,9 @@
       ],
       "@northwindplatform/security/utilities": [
         "libs/shared/security/utilities/src/index.ts"
+      ],
+      "@northwindplatform/shared/contracts": [
+        "libs/shared/contracts/src/index.ts"
       ]
     }
   },

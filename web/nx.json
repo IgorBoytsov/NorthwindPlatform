@@ -45,7 +45,14 @@
     }
   },
   "release": {
-    "projects": ["api", "abstractions", "cryptography", "srp", "utilities"],
+    "projects": [
+      "api",
+      "abstractions",
+      "cryptography",
+      "srp",
+      "utilities",
+      "contracts"
+    ],
     "projectsRelationship": "independent",
     "docker": {
       "skipVersionActions": true
@@ -113,7 +120,8 @@
         "libs/shared/security/abstractions/*",
         "libs/shared/security/cryptography/*",
         "libs/shared/security/srp/*",
-        "libs/shared/security/utilities/*"
+        "libs/shared/security/utilities/*",
+        "libs/shared/contracts/*"
       ]
     },
     {
@@ -125,7 +133,8 @@
         "libs/shared/security/abstractions/*",
         "libs/shared/security/cryptography/*",
         "libs/shared/security/srp/*",
-        "libs/shared/security/utilities/*"
+        "libs/shared/security/utilities/*",
+        "libs/shared/contracts/*"
       ],
       "options": {
         "typecheck": {

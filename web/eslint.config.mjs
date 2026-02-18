@@ -1,4 +1,6 @@
+import { source } from '@angular-devkit/schematics';
 import nx from '@nx/eslint-plugin';
+import { only } from 'node:test';
 
 export default [
   ...nx.configs['flat/base'],
@@ -20,22 +22,18 @@ export default [
           enforceBuildableLibDependency: true,
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
-            {
-              sourceTag: 'scope:shared',
-              onlyDependOnLibsWithTags: ['scope:shared'],
-            },
-            {
-              sourceTag: 'scope:shop',
-              onlyDependOnLibsWithTags: ['scope:shop', 'scope:shared'],
-            },
-            {
-              sourceTag: 'scope:api',
-              onlyDependOnLibsWithTags: ['scope:api', 'scope:shared'],
-            },
-            {
-              sourceTag: 'type:data',
-              onlyDependOnLibsWithTags: ['type:data'],
-            },
+            { sourceTag: 'scope:shared', onlyDependOnLibsWithTags: ['scope:shared'] },
+            { sourceTag: 'scope:shop', onlyDependOnLibsWithTags: ['scope:shop', 'scope:shared'] },
+            { sourceTag: 'scope:api', onlyDependOnLibsWithTags: ['scope:api', 'scope:shared'] },
+
+            { sourceTag: 'scope:security', onlyDependOnLibsWithTags: ['scope:security', 'scope:shared'] },
+            { sourceTag: 'scope:staff-portal', onlyDependOnLibsWithTags: ['scope:security', 'scope:shared'] },
+            { sourceTag: "type:app", onlyDependOnLibsWithTags: ['type:lib', 'type:data', 'type:ui'] },
+
+            { sourceTag: 'type:lib', onlyDependOnLibsWithTags: ['type:lib', 'type:data'] },
+            { sourceTag: 'type:data', onlyDependOnLibsWithTags: ['type:data'] },
+
+            { sourceTag: 'npm:public', onlyDependOnLibsWithTags: ['npm:public', 'scope:shared', 'scope:security', 'scope:api', 'scope:shop'] }
           ],
         },
       ],

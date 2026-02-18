@@ -20,7 +20,7 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:security", "type:lib"],
   "release": {
     "version": {
       "manifestRootsToUpdate": ["dist/{projectRoot}"],

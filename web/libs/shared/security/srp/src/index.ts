@@ -1,1 +1,1 @@
-export * from './lib/srp';
+export * from './lib/srp.service.impl';

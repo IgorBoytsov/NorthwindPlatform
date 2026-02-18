@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SrpServiceImpl } from '@northwindplatform/security/srp';
+import { SrpChallengeRequest, SrpVerifyRequest } from '@northwindplatform/shared/contracts';
+import { AuthApi } from '../api/auth.api';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +17,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   private fb = inject(FormBuilder); 
   private router = inject(Router); 
+  private authApi = inject(AuthApi);
 
   loginForm: FormGroup;
   isLoading = false;
@@ -27,9 +32,37 @@ export class LoginComponent {
     });
   }
 
-  onSubmit(): void {
+  srpService = new SrpServiceImpl();
+  // authApi = new AuthApi();
+
+  async onSubmit(): Promise<void> {
     if (this.loginForm.invalid)
       return;
+    const { username, password } = this.loginForm.value;
+
+    const srpChallengeRequest: SrpChallengeRequest = { login: username };
+    const srpChallengeResponse = await firstValueFrom(this.authApi.getCrpChallenge(srpChallengeRequest));
+    const { salt, b } = srpChallengeResponse; 
+    const {A, M1, S} = await this.srpService.generateSrpProof(password,salt, b);
+
+    const srpVerifyRequest: SrpVerifyRequest = { Login: username, A, M1};
+
+    const srpVerifierResponse = await firstValueFrom(this.authApi.srpVerifyProof(srpVerifyRequest));
+    const { m2 } = srpVerifierResponse;
+
+    if (!m2){
+      this.errorMessage = "Ошибка аутентификации: M2 отсутствует в ответе сервера.";
+      return;
+    }
+
+    const isServerValid = await this.srpService.verifyServerM2(A, M1, S, m2);
+
+    if (!isServerValid) {
+      this.errorMessage = "Ошибка аутентификации: Подлинность сервера не подтверждена!";
+      return;
+    }
+
+    console.log("Успешная аутентификация! Сервер подтвержден.");
 
     this.isLoading = true;
     this.errorMessage = null;

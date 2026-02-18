@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/staff-portal/src",
-  "tags": [],
+  "tags": ["scope:staff-portal", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular/build:application",

@@ -28,7 +28,8 @@ export default [
 
             { sourceTag: 'scope:security', onlyDependOnLibsWithTags: ['scope:security', 'scope:shared'] },
             { sourceTag: 'scope:staff-portal', onlyDependOnLibsWithTags: ['scope:security', 'scope:shared'] },
-            { sourceTag: "type:app", onlyDependOnLibsWithTags: ['type:lib', 'type:data', 'type:ui'] },
+            { sourceTag: 'scope:passenger-portal', onlyDependOnLibsWithTags: ['scope:security', 'scope:shared']},
+            { sourceTag: "type:app", onlyDependOnLibsWithTags: ['type:lib', 'type:data', 'type:ui', 'scope:security', 'scope:shared'] },
 
             { sourceTag: 'type:lib', onlyDependOnLibsWithTags: ['type:lib', 'type:data'] },
             { sourceTag: 'type:data', onlyDependOnLibsWithTags: ['type:data'] },

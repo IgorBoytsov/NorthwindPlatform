@@ -1,4 +1,7 @@
 import { useState, useCallback } from 'react';
+import { SrpServiceImpl } from '@northwindplatform/security/srp';
+import { SrpChallengeRequest, SrpVerifyRequest } from '@northwindplatform/shared/contracts'
+import { useAuthApi } from '../api/auth.api';
 
 export interface LoginFormValues {
   username: string;
@@ -16,6 +19,9 @@ export const useLoginForm = () => {
 
   const minUsernameLength = 3;
   const minPasswordLength = 8;
+
+  const srpService = new SrpServiceImpl();
+  const { getSrpChallenge, srpVerifyProof } = useAuthApi();
 
   const validate = useCallback(() => {
     const newErrors: Record<string, string> = {};
@@ -49,16 +55,41 @@ export const useLoginForm = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const newErrors: Record<string, string> = {};
 
     setIsLoading(true);
     setErrorMessage(null);
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      console.log('Успешная аутентификация');
+      const { username, password } = values;
+      const srpChallengeRequest: SrpChallengeRequest = { login: username };
+      const srpChallengeResponse = await getSrpChallenge(srpChallengeRequest);
+      const { salt, b } = srpChallengeResponse;
+      const { A, M1, S } = await srpService.generateSrpProof(password, salt, b)
+
+      const srpVerifyRequest : SrpVerifyRequest = { Login: username, A, M1 };
+
+      const srpVerifierResponse = await srpVerifyProof(srpVerifyRequest); 
+      const { m2 } = srpVerifierResponse;
+
+      if (!m2) {
+        newErrors.m2 = "Ошибка аутентификации: M2 отсутствует в ответе сервера.";
+        return;
+      }
+
+      const isServerValid = await srpService.verifyServerM2(A, M1, S, m2);
+
+      if (!isServerValid) {
+        newErrors.errorMessage = "Ошибка аутентификации: Подлинность сервера не подтверждена!";
+        return;
+      }
+
+      console.log("Успешная аутентификация! Сервер подтвержден.");
+      
     } catch (err) {
       setErrorMessage('Неверный логин или пароль');
       console.error('Ошибка входа', err);

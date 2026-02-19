@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Client.Security.Wind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Bff.Staff", "src\apps\bff\NorthwindPlatform.Bff.Staff\NorthwindPlatform.Bff.Staff.csproj", "{2D4FC0A4-6337-468E-8A91-76124094ADBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Bff.Passenger", "src\apps\bff\NorthwindPlatform.Bff.Passenger\NorthwindPlatform.Bff.Passenger.csproj", "{8EABDBA3-FE1F-499D-81DA-B735952CDE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -371,6 +373,18 @@ Global
 		{2D4FC0A4-6337-468E-8A91-76124094ADBA}.Release|x64.Build.0 = Release|Any CPU
 		{2D4FC0A4-6337-468E-8A91-76124094ADBA}.Release|x86.ActiveCfg = Release|Any CPU
 		{2D4FC0A4-6337-468E-8A91-76124094ADBA}.Release|x86.Build.0 = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|x64.Build.0 = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Debug|x86.Build.0 = Debug|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|x64.ActiveCfg = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|x64.Build.0 = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|x86.ActiveCfg = Release|Any CPU
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -416,6 +430,7 @@ Global
 		{AFC5CF39-40C8-4783-9116-96050640E71B} = {8E67E2E8-4B5F-7650-96FE-96D7DDB37776}
 		{C48BE764-AE9E-4B1F-ABBF-1E536A0BC7E6} = {8E67E2E8-4B5F-7650-96FE-96D7DDB37776}
 		{2D4FC0A4-6337-468E-8A91-76124094ADBA} = {1C70DEF5-4FCA-C293-0F5C-C66A8A9A5A1F}
+		{8EABDBA3-FE1F-499D-81DA-B735952CDE40} = {1C70DEF5-4FCA-C293-0F5C-C66A8A9A5A1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20D241C4-B1D8-4432-BB01-1F865D7402E4}

@@ -1,0 +1,12 @@
+# Игнорируем папки сборки и кэша
+node_modules
+dist
+.angular
+.nx
+.vscode
+.swc
+
+# Игнорируем логи и временные файлы
+*.log
+tmp
+coverage

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:Double x:Key="Size.Font.Small">12</sys:Double>
+    <sys:Double x:Key="Size.Font.Normal">14</sys:Double>
+    <sys:Double x:Key="Size.Font.Large">18</sys:Double>
+
+    <!--<Thickness x:Key="Thickness.Padding.Normal">8</Thickness>
+    <Thickness x:Key="Thickness.Margin.Normal">5</Thickness>
+
+    <CornerRadius x:Key="Radius.Corner.Normal">4</CornerRadius>-->
+
+</ResourceDictionary>

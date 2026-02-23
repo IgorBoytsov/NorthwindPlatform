@@ -1,0 +1,47 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@org/api/products": ["libs/api/products/src/index.ts"],
+      "@org/models": ["libs/shared/models/src/index.ts"],
+      "@org/shop/data": ["libs/shop/data/src/index.ts"],
+      "@org/shop/feature-product-detail": [
+        "libs/shop/feature-product-detail/src/index.ts"
+      ],
+      "@org/shop/feature-products": ["libs/shop/feature-products/src/index.ts"],
+      "@org/shop/shared-ui": ["libs/shop/shared-ui/src/index.ts"],
+      "@org/utils": ["libs/shared/utils/src/index.ts"],
+      "@northwindplatform/shared/dto": ["libs/shared/dto/src/index.ts"],
+      "@org/simple": ["libs/shared/simple/src/index.ts"],
+      "@northwindplatform/security/abstractions": [
+        "libs/shared/security/abstractions/src/index.ts"
+      ],
+      "@northwindplatform/security/cryptography": [
+        "libs/shared/security/cryptography/src/index.ts"
+      ],
+      "@northwindplatform/security/srp": [
+        "libs/shared/security/srp/src/index.ts"
+      ],
+      "@northwindplatform/security/utilities": [
+        "libs/shared/security/utilities/src/index.ts"
+      ],
+      "@northwindplatform/shared/contracts": [
+        "libs/shared/contracts/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

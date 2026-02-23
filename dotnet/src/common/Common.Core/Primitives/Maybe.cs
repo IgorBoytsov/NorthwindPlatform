@@ -17,7 +17,7 @@
 
         public T Value => HasValue
             ? _value
-            : throw new InvalidOperationException("Cannot access the value of a 'None' Maybe.");
+            : throw new InvalidOperationException("Невозможно получить доступ к значению «None» у Maybe.");
 
  
         public static Maybe<T> None => new();

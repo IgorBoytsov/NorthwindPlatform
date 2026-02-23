@@ -1,0 +1,1 @@
+SELECT * FROM trust_devices WHERE device_id = @deviceId and is_active = true;

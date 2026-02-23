@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- ╔═════════════════════════════════════════════════════════════════════════════╗ -->
+    <!-- ║                                   Базовая                                   ║ -->
+    <!-- ╚═════════════════════════════════════════════════════════════════════════════╝ -->
+
+    <Style x:Key="TextBox.Base" TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource Brush.TextBox.Background}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.TextBox.Borderbrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Brush.Caret}"/>
+        <Setter Property="Margin" Value="0,5,0,5"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,5,0,5"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Foreground.Primary}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="border" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Margin="2">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                                      Focusable="false"
+                                      Foreground="#F0F1F3"
+                                      HorizontalScrollBarVisibility="Hidden" 
+                                      VerticalScrollBarVisibility="Hidden"
+                                      Padding="3"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--<Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource Brush.TextBox.Borderbrush.Focused}"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource Brush.TextBox.Borderbrush.MouseOver}"/>
+            </Trigger>
+        </Style.Triggers>-->
+    </Style>
+
+</ResourceDictionary>

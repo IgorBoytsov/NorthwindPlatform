@@ -34,16 +34,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var app = builder.Build();
 
-app.MapEndpoints(Assembly.GetExecutingAssembly());
-
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+app.UseHttpsRedirection();
+app.UseRouting();
 app.UseCors("AllowLocalFrontend");
-
 app.UseAuthentication(); 
 
 app.UseHttpsRedirection();
+app.MapEndpoints(Assembly.GetExecutingAssembly());
 app.Run();

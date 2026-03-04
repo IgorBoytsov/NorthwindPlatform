@@ -3,7 +3,7 @@ import axios from 'axios';
 import { SrpChallengeRequest, SrpVerifyRequest, SrpChallengeResponse, AuthResponse } from '@northwindplatform/shared/contracts';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5193',
+  baseURL: 'http://127.0.0.1:5193',
   withCredentials: true, 
 });
 

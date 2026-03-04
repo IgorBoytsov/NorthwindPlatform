@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.Cookie.Name = "Nexus.Auth";
+        options.Cookie.Name = "Staff.Portal";
         options.Cookie.HttpOnly = true;
         options.Cookie.SameSite = SameSiteMode.Strict;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
@@ -34,16 +34,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var app = builder.Build();
 
-app.MapEndpoints(Assembly.GetExecutingAssembly());
-
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+app.UseHttpsRedirection();
+app.UseRouting();
 app.UseCors("AllowLocalFrontend");
-
 app.UseAuthentication(); 
 
 app.UseHttpsRedirection();
+app.MapEndpoints(Assembly.GetExecutingAssembly());
 app.Run();

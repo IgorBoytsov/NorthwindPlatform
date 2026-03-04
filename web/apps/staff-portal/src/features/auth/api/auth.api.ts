@@ -8,7 +8,7 @@ import { SrpChallengeRequest, SrpVerifyRequest, SrpChallengeResponse, AuthRespon
 })
 export class AuthApi {
     private http: HttpClient = inject(HttpClient);
-    private baseUrl = 'http://localhost:5121'; // BFF URL
+    private baseUrl = 'http://127.0.0.1:5121'; // BFF URL
 
     getCrpChallenge(data: SrpChallengeRequest): Observable<SrpChallengeResponse> {
         return this.http.post<SrpChallengeResponse>(`${this.baseUrl}/srp/challenge`, data);

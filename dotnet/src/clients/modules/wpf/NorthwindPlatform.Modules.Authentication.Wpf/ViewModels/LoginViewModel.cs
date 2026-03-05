@@ -1,4 +1,5 @@
-﻿using Shared.Client.Security.Abstractions;
+﻿using Quantropic.Security.Abstractions;
+using Shared.Client.Security.Abstractions;
 using Shared.Contracts.Requests.AuthenticationService;
 using Shared.Contracts.Requests.Workstation;
 using Shared.UI.Wpf.Enums;
@@ -9,8 +10,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
     public class LoginViewModel : BindableBase
     {
         private readonly IAuthenticationService _authenticationService;
-        private readonly ICryptoService _cryptoService;
-        private readonly ISrpService _srpService;
+        private readonly ICryptoServices _cryptoService;
+        private readonly ISrpClient _srpService;
         private readonly ISecureTokenStorage _secureTokenStorage;
         private readonly IDeviceIdentityService _deviceIdentityService;
         private readonly IRegionManager _regionManager;
@@ -19,8 +20,8 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
 
         public LoginViewModel(
             IAuthenticationService authenticationService, 
-            ICryptoService cryptoService,
-            ISrpService srpService,
+            ICryptoServices cryptoService,
+            ISrpClient srpService,
             ISecureTokenStorage tokenStorage,
             IDeviceIdentityService deviceIdentityService,
             IRegionManager regionManager)
@@ -94,7 +95,7 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
 
                 var (A, M1, S) = _srpService.GenerateSrpProof(Password!, challengeSalt, challengeB);
 
-                var srpVerifyResult = await _authenticationService.VerifySrpProof(new WorkstationSrpVerifyRequest(Login!, A, M1, deviceIdentity.DeviceId, Convert.ToBase64String(deviceIdentity.FingerprintHash)));
+                var srpVerifyResult = await _authenticationService.VerifySrpProof(new WorkstationSrpVerifyRequest(Login!, A, M1, deviceIdentity.DeviceId, deviceIdentity.FingerprintHash));
 
                 if (srpVerifyResult.IsFailure)
                 {

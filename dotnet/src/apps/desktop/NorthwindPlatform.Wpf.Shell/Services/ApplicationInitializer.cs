@@ -1,4 +1,5 @@
 ﻿using NorthwindPlatform.Modules.Authentication.Wpf.Views;
+using Quantropic.Security.Abstractions;
 using Shared.Client.Security.Abstractions;
 using Shared.Contracts.Requests.Security;
 using Shared.UI.Wpf.Enums;

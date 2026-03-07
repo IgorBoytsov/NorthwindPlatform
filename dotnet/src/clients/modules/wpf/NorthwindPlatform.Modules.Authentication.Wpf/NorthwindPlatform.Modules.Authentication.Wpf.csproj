@@ -9,19 +9,14 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="9.0.537" />
+    <PackageReference Include="Quantropic.Security.Srp.Client" Version="0.1.0-beta.2" />
+    <PackageReference Include="Quantropic.Security.Windows" Version="0.1.0-beta.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\common\Common.Core\Common.Core.csproj" />
     <ProjectReference Include="..\..\..\..\common\Shared.Contracts\Shared.Contracts.csproj" />
     <ProjectReference Include="..\..\..\api\NorthwindPlatform.Authentication.ApiClient\NorthwindPlatform.Authentication.ApiClient.csproj" />
-    
-    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Abstractions\Shared.Client.Security.Abstractions.csproj" />
-    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Cryptography\Shared.Client.Security.Cryptography.csproj" />
-    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Srp\Shared.Client.Security.Srp.csproj" />
-    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Utilities\Shared.Client.Security.Utilities.csproj" />
-    <ProjectReference Include="..\..\..\shared\core\security\Shared.Client.Security.Windows\Shared.Client.Security.Windows.csproj" />
-    
     <ProjectReference Include="..\..\..\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>
 

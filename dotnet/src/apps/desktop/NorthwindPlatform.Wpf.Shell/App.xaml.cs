@@ -4,10 +4,16 @@ using NorthwindPlatform.Authentication.ApiClient.HttpClients;
 using NorthwindPlatform.Modules.Authentication.Wpf;
 using NorthwindPlatform.Wpf.Shell.Services;
 using NorthwindPlatform.Wpf.Shell.Views;
+using Quantropic.Security.Abstractions;
+using Quantropic.Security.Cryptography;
+using Quantropic.Security.Srp.Client;
+using Quantropic.Security.Windows;
 using Shared.Client.Security.Abstractions;
-using Shared.Client.Security.Cryptography;
-using Shared.Client.Security.Srp;
-using Shared.Client.Security.Windows;
+// using Shared.Client.Security.Windows;
+// using Shared.Client.Security.Abstractions;
+// using Shared.Client.Security.Cryptography;
+// using Shared.Client.Security.Srp;
+// using Shared.Client.Security.Windows;
 using Shared.Contracts.Enums;
 using Shared.UI.Wpf.Services.Theme;
 using System.IO;
@@ -34,12 +40,14 @@ namespace NorthwindPlatform.Wpf.Shell
 
             containerRegistry.RegisterInstance<IConfiguration>(Configuration);
             containerRegistry.RegisterSingleton<IThemeService, ThemeService>();
-            containerRegistry.RegisterSingleton<ISecureTokenStorage, WpfSecureTokenStorage>();
+
             containerRegistry.RegisterSingleton<IApplicationInitializer, ApplicationInitializer>();
 
-            containerRegistry.RegisterSingleton<ISrpService, SrpService>();
-            containerRegistry.RegisterSingleton<ICryptoService, CryptoService>();
+            containerRegistry.RegisterSingleton<ISrpClient, SrpClientService>();
+            containerRegistry.RegisterSingleton<ICryptoServices, CryptoService>();
             containerRegistry.RegisterSingleton<IKeyDerivationService, KeyDerivationService>();
+            containerRegistry.RegisterSingleton<ISecureTokenStorage>(c => new WindowSecureTokenStorage("NorthwindPlatform"));
+            containerRegistry.RegisterSingleton<IDeviceIdentityService>(c => new DeviceIdentityService("NorthwindPlatform"));
 
             string? authServiceApiUrl = Configuration.GetValue<string>("BaseAuthServiceUrl");
             services.AddHttpClient(ApiClientName.BaseAuthApi.ToString(), client => client.BaseAddress = new Uri(authServiceApiUrl!));

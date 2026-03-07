@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { SrpServiceImpl } from '@northwindplatform/security/srp';
+import { SrpService } from '@quantropic/security'
 import { SrpChallengeRequest, SrpVerifyRequest } from '@northwindplatform/shared/contracts'
 import { useAuthApi } from '../api/auth.api';
 
@@ -20,7 +20,7 @@ export const useLoginForm = () => {
   const minUsernameLength = 3;
   const minPasswordLength = 8;
 
-  const srpService = new SrpServiceImpl();
+  const srpService = new SrpService();
   const { getSrpChallenge, srpVerifyProof } = useAuthApi();
 
   const validate = useCallback(() => {

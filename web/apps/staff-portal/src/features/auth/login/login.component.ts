@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SrpServiceImpl } from '@northwindplatform/security/srp';
+import { SrpService } from '@quantropic/security'
 import { SrpChallengeRequest, SrpVerifyRequest } from '@northwindplatform/shared/contracts';
 import { AuthApi } from '../api/auth.api';
 import { firstValueFrom } from 'rxjs';
@@ -32,8 +32,7 @@ export class LoginComponent {
     });
   }
 
-  srpService = new SrpServiceImpl();
-  // authApi = new AuthApi();
+  srpService = new SrpService();
 
   async onSubmit(): Promise<void> {
     if (this.loginForm.invalid)

@@ -1,7 +1,6 @@
 ﻿using NorthwindPlatform.Authentication.ApiClient.HttpClients;
 using NorthwindPlatform.Modules.Authentication.Wpf.Views;
 using Shared.Client.Security.Abstractions;
-using Shared.Client.Security.Windows;
 
 namespace NorthwindPlatform.Modules.Authentication.Wpf
 {
@@ -18,7 +17,6 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf
         {
             containerRegistry.RegisterForNavigation<LoginView>();
             containerRegistry.Register<IAuthenticationService, AuthService>();
-            containerRegistry.RegisterSingleton<IDeviceIdentityService, DeviceIdentityService>();
         }
     }
 }

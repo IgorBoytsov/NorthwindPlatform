@@ -93,7 +93,7 @@ namespace NorthwindPlatform.Modules.Authentication.Wpf.ViewModels
                 var challengeSalt = challengeResult.Value.Salt;
                 var challengeB = challengeResult.Value.B;
 
-                var (A, M1, S) = _srpService.GenerateSrpProof(Password!, challengeSalt, challengeB);
+                var (A, M1, S) = _srpService.GenerateSrpProof(Login! ,Password!, challengeSalt, challengeB);
 
                 var srpVerifyResult = await _authenticationService.VerifySrpProof(new WorkstationSrpVerifyRequest(Login!, A, M1, deviceIdentity.DeviceId, deviceIdentity.FingerprintHash));
 

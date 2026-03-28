@@ -42,7 +42,7 @@ export class LoginComponent {
     const srpChallengeRequest: SrpChallengeRequest = { login: username };
     const srpChallengeResponse = await firstValueFrom(this.authApi.getCrpChallenge(srpChallengeRequest));
     const { salt, b } = srpChallengeResponse; 
-    const {A, M1, S} = await this.srpService.generateSrpProof(password,salt, b);
+    const {A, M1, S} = await this.srpService.generateSrpProof(username, password,salt, b);
 
     const srpVerifyRequest: SrpVerifyRequest = { Login: username, A, M1};
 

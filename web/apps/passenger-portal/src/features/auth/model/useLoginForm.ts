@@ -69,7 +69,7 @@ export const useLoginForm = () => {
       const srpChallengeRequest: SrpChallengeRequest = { login: username };
       const srpChallengeResponse = await getSrpChallenge(srpChallengeRequest);
       const { salt, b } = srpChallengeResponse;
-      const { A, M1, S } = await srpService.generateSrpProof(password, salt, b)
+      const { A, M1, S } = await srpService.generateSrpProof(username, password, salt, b)
 
       const srpVerifyRequest : SrpVerifyRequest = { Login: username, A, M1 };
 

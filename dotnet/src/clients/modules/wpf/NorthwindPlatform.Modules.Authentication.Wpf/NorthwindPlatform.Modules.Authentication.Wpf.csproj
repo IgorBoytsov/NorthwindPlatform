@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="9.0.537" />
-    <PackageReference Include="Quantropic.Security.Srp.Client" Version="0.2.0-beta.1" />
-    <PackageReference Include="Quantropic.Security.Windows" Version="0.2.0-beta.1" />
+    <PackageReference Include="Prism.Wpf" />
+    <PackageReference Include="Quantropic.Security.Srp.Client"/>
+    <PackageReference Include="Quantropic.Security.Windows"/>
   </ItemGroup>
 
   <ItemGroup>

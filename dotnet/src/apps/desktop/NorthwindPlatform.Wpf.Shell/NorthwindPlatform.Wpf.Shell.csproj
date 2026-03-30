@@ -19,17 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DryIoc.Microsoft.DependencyInjection.Extension" Version="1.0.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
-    <PackageReference Include="Prism.DryIoc" Version="9.0.537" />
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection.Extension"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json"/>
+    <PackageReference Include="Microsoft.Extensions.Http"/>
+    <PackageReference Include="Prism.DryIoc"/>
   </ItemGroup>
-
-  <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
-    <ProjectReference Include="..\..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
-  </ItemGroup> -->
 
   <ItemGroup>
     <Content Include="ApiConf.json">
@@ -39,7 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\clients\modules\wpf\NorthwindPlatform.Modules.Authentication.Wpf\NorthwindPlatform.Modules.Authentication.Wpf.csproj" />
-    <!-- <ProjectReference Include="..\..\..\clients\shared\core\security\Shared.Client.Security.Windows\Shared.Client.Security.Windows.csproj" /> -->
     <ProjectReference Include="..\..\..\clients\shared\ui\Shared.UI.Wpf\Shared.UI.Wpf.csproj" />
   </ItemGroup>
 

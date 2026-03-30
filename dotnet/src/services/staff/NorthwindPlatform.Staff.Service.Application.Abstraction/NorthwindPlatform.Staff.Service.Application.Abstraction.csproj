@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore"/>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\common\Common.Core\Common.Core.csproj" />
-  </ItemGroup>
-
 </Project>

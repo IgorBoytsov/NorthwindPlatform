@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application.Abstraction\NorthwindPlatform.Staff.Service.Application.Abstraction.csproj" />
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Domain\NorthwindPlatform.Staff.Service.Domain.csproj" />
   </ItemGroup>

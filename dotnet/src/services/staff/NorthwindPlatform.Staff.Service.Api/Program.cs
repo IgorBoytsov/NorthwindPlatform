@@ -1,3 +1,4 @@
+using NorthwindPlatform.Staff.Service.Application.Ioc;
 using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Ioc;
 using NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.Ioc;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 builder.Services
+    .AddApplication()
     .AddEventStoreInfra(builder.Configuration)
     .AddPostgreSQLInfra(builder.Configuration);
 

@@ -7,14 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application\NorthwindPlatform.Staff.Service.Application.csproj" />
-    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure\NorthwindPlatform.Staff.Service.Infrastructure.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.EventStore\NorthwindPlatform.Staff.Service.Infrastructure.EventStore.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL\NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application.Abstraction\NorthwindPlatform.Staff.Service.Application.Abstraction.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application.Abstractions\NorthwindPlatform.Staff.Service.Application.Abstractions.csproj" />
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Domain\NorthwindPlatform.Staff.Service.Domain.csproj" />
   </ItemGroup>
 

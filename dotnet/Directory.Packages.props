@@ -26,6 +26,7 @@
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0"/>
 
     <PackageVersion Include="EventStore.Client.Grpc" Version="23.3.9"/>
+    <PackageVersion Include="EventStore.Client.Grpc.Streams" Version="23.3.9"/>
     <PackageVersion Include="Npgsql" Version="10.0.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.0"/>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.0" />

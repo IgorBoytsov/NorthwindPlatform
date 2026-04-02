@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EventStore.Client.Grpc"/>
-    <PackageReference Include="Microsoft.Extensions.Configuration"/>
+    <PackageReference Include="EventStore.Client.Grpc" />
+    <PackageReference Include="EventStore.Client.Grpc.Streams" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\core\Shared.Kernel\Shared.Kernel.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application.Abstractions\NorthwindPlatform.Staff.Service.Application.Abstractions.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Domain\NorthwindPlatform.Staff.Service.Domain.csproj" />
   </ItemGroup>
 
 </Project>

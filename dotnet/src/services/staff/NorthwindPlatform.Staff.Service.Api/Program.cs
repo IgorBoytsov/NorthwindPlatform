@@ -4,6 +4,7 @@ using NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services
@@ -19,5 +20,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 
 app.Run();

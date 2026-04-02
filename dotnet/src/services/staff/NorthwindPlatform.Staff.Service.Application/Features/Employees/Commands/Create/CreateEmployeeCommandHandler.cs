@@ -1,6 +1,6 @@
 using Common.Core.Results;
 using MediatR;
-using NorthwindPlatform.Staff.Service.Application.Abstractions;
+using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
 using NorthwindPlatform.Staff.Service.Domain.Models;
 using NorthwindPlatform.Staff.Service.Domain.ValueObjects.Employees;
 using Shared.Kernel.Exceptions;

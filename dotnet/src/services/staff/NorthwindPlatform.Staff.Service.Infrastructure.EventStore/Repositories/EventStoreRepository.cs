@@ -1,5 +1,5 @@
 using EventStore.Client;
-using NorthwindPlatform.Staff.Service.Application.Abstractions;
+using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
 using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events;
 using Shared.Kernel.Primitives;
 

@@ -89,8 +89,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Staff.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Staff.Service.Infrastructure.EventStore", "src\services\staff\NorthwindPlatform.Staff.Service.Infrastructure.EventStore\NorthwindPlatform.Staff.Service.Infrastructure.EventStore.csproj", "{AF7CF248-3F02-47D0-89B0-FAAA8AC1D4D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindPlatform.Staff.Service.Application.Abstractions", "src\services\staff\NorthwindPlatform.Staff.Service.Application.Abstractions\NorthwindPlatform.Staff.Service.Application.Abstractions.csproj", "{922576D8-27CF-451E-A33E-0AD97297A860}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -389,18 +387,6 @@ Global
 		{AF7CF248-3F02-47D0-89B0-FAAA8AC1D4D5}.Release|x64.Build.0 = Release|Any CPU
 		{AF7CF248-3F02-47D0-89B0-FAAA8AC1D4D5}.Release|x86.ActiveCfg = Release|Any CPU
 		{AF7CF248-3F02-47D0-89B0-FAAA8AC1D4D5}.Release|x86.Build.0 = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|x64.Build.0 = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Debug|x86.Build.0 = Debug|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|Any CPU.Build.0 = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|x64.ActiveCfg = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|x64.Build.0 = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|x86.ActiveCfg = Release|Any CPU
-		{922576D8-27CF-451E-A33E-0AD97297A860}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -448,7 +434,6 @@ Global
 		{973049A7-2C85-46BC-BEBF-03564ABF732D} = {327625DC-B042-0E63-086D-3A62A2ED6C2A}
 		{0D8E9898-12D9-4833-A0AE-E78E7537E5A9} = {327625DC-B042-0E63-086D-3A62A2ED6C2A}
 		{AF7CF248-3F02-47D0-89B0-FAAA8AC1D4D5} = {327625DC-B042-0E63-086D-3A62A2ED6C2A}
-		{922576D8-27CF-451E-A33E-0AD97297A860} = {327625DC-B042-0E63-086D-3A62A2ED6C2A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20D241C4-B1D8-4432-BB01-1F865D7402E4}

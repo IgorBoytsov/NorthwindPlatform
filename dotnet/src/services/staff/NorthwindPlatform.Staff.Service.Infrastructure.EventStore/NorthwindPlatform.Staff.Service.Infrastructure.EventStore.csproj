@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\shared\core\Shared.Kernel\Shared.Kernel.csproj" />
-    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application.Abstractions\NorthwindPlatform.Staff.Service.Application.Abstractions.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application\NorthwindPlatform.Staff.Service.Application.csproj" />
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Domain\NorthwindPlatform.Staff.Service.Domain.csproj" />
   </ItemGroup>
 

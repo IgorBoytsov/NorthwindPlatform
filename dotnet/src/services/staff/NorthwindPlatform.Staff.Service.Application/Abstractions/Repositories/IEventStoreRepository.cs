@@ -1,6 +1,6 @@
 using Shared.Kernel.Primitives;
 
-namespace NorthwindPlatform.Staff.Service.Application.Abstractions
+namespace NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories
 {
     public interface IEventStoreRepository
     {

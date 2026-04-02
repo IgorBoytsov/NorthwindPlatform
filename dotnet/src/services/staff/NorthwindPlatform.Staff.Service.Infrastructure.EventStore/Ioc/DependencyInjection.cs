@@ -1,7 +1,7 @@
 using EventStore.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NorthwindPlatform.Staff.Service.Application.Abstractions;
+using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
 using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events;
 using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Repositories;
 

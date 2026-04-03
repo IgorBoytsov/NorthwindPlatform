@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.Persistence.Contexts;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.Persistence.Migrations
 {
     [DbContext(typeof(StaffContext))]
-    partial class StaffContextModelSnapshot : ModelSnapshot
+    [Migration("20260403175445_FixEmployeeReadColumnNames")]
+    partial class FixEmployeeReadColumnNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

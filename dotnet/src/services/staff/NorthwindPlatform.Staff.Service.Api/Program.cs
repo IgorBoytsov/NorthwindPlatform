@@ -1,6 +1,7 @@
 using NorthwindPlatform.Staff.Service.Application.Ioc;
-using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Ioc;
+using NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Ioc;
 using NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.Ioc;
+using NorthwindPlatform.Staff.Service.Infrastructure.Projections.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddOpenApi();
 
 builder.Services
     .AddApplication()
+    .AddProjectionInfra()
     .AddEventStoreInfra(builder.Configuration)
     .AddPostgreSQLInfra(builder.Configuration);
 

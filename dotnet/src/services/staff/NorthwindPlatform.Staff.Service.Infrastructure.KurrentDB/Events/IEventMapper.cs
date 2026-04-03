@@ -1,6 +1,6 @@
 using KurrentDB.Client;
 
-namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events
+namespace NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Events
 {
     public interface IEventMapper
     {

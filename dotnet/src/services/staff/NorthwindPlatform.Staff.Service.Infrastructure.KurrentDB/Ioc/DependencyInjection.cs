@@ -1,10 +1,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
-using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events;
-using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Repositories;
+using NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Events;
+using NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Repositories;
 
-namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Ioc
+namespace NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Ioc
 {
     public static class DependencyInjection
     {

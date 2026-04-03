@@ -15,8 +15,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Application\NorthwindPlatform.Staff.Service.Application.csproj" />
-    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.EventStore\NorthwindPlatform.Staff.Service.Infrastructure.EventStore.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB\NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.csproj" />
     <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL\NorthwindPlatform.Staff.Service.Infrastructure.PostgreSQL.csproj" />
+    <ProjectReference Include="..\NorthwindPlatform.Staff.Service.Infrastructure.Projections\NorthwindPlatform.Staff.Service.Infrastructure.Projections.csproj" />
   </ItemGroup>
 
 </Project>

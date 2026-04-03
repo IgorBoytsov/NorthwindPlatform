@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using KurrentDB.Client;
 
-namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events
+namespace NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Events
 {
     public class EventMapper(EventTypeRegistry registry) : IEventMapper
     {

@@ -1,6 +1,6 @@
 using NorthwindPlatform.Staff.Service.Domain.Events.Employees;
 
-namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events
+namespace NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Events
 {
     public class EventTypeRegistry
     {

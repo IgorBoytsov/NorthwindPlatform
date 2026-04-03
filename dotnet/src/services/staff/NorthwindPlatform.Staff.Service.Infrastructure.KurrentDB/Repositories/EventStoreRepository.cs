@@ -1,9 +1,9 @@
 using KurrentDB.Client;
 using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
-using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events;
+using NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Events;
 using Shared.Kernel.Primitives;
 
-namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Repositories
+namespace NorthwindPlatform.Staff.Service.Infrastructure.KurrentDB.Repositories
 {
     public class EventStoreRepository(KurrentDBClient client, IEventMapper eventMapper) : IEventStoreRepository
     {

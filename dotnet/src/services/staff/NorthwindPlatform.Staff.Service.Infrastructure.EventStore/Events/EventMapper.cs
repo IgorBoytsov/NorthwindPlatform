@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using EventStore.Client;
+using KurrentDB.Client;
 
 namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events
 {

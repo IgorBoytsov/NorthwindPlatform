@@ -1,4 +1,3 @@
-using EventStore.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
@@ -16,8 +15,7 @@ namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Ioc
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new InvalidOperationException("EventStore connection string is missing!");
 
-            var settings = EventStoreClientSettings.Create(connectionString);
-            services.AddSingleton(new EventStoreClient(settings));
+            services.AddKurrentDBClient(connectionString);
             services.AddScoped<IEventStoreRepository, EventStoreRepository>();
 
             services.AddSingleton<EventTypeRegistry>();

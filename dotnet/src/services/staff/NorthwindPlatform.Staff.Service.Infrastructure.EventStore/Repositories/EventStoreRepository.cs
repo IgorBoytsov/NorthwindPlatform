@@ -1,13 +1,13 @@
-using EventStore.Client;
+using KurrentDB.Client;
 using NorthwindPlatform.Staff.Service.Application.Abstractions.Repositories;
 using NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Events;
 using Shared.Kernel.Primitives;
 
 namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Repositories
 {
-    public class EventStoreRepository(EventStoreClient client, IEventMapper eventMapper) : IEventStoreRepository
+    public class EventStoreRepository(KurrentDBClient client, IEventMapper eventMapper) : IEventStoreRepository
     {
-        private readonly EventStoreClient _client = client;
+        private readonly KurrentDBClient _client = client;
         private readonly IEventMapper _eventMapper = eventMapper;
 
         public async Task SaveAsync<T, TId>(string streamId, T aggregate, long expectedVersion, CancellationToken ct = default) 
@@ -21,9 +21,19 @@ namespace NorthwindPlatform.Staff.Service.Infrastructure.EventStore.Repositories
 
             var eventData = events.Select(_eventMapper.MapToEventData);
 
-            var streamRevision = expectedVersion == -1 ? StreamRevision.None : new StreamRevision((ulong)expectedVersion);
-
-            await _client.AppendToStreamAsync(streamId, streamRevision, eventData, cancellationToken: ct);
+            if (expectedVersion == -1)
+            {
+                await _client.AppendToStreamAsync(streamId, StreamState.NoStream, eventData, cancellationToken: ct);
+            }
+            else if (expectedVersion == -2)
+            {
+                await _client.AppendToStreamAsync(streamId, StreamState.Any, eventData, cancellationToken: ct);
+            }
+            else
+            {
+                var expectedRevision  = (ulong)expectedVersion;
+                await _client.AppendToStreamAsync(streamId, expectedRevision, eventData, cancellationToken: ct);
+            }
 
             aggregate.ClearDomainEvents();
         }

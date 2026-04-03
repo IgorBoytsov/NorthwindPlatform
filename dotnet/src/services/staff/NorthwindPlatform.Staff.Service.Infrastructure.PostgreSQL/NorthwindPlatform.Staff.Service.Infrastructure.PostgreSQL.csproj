@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Persistence\Repositories\Employee\Sql\*.sql" />
+    <!-- <EmbeddedResource Include="Repositories\Employee\Sql\*.sql" /> -->
+    <EmbeddedResource Include="Repositories\**\*.sql" />
   </ItemGroup>
 
 </Project>
